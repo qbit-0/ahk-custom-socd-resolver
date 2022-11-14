@@ -10,94 +10,94 @@ SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
 ; X-AXIS *********************************************
 ;; SHARED
 7 up::
-q up::
-    If (GetKeyState("e", "P") Or GetKeyState("9", "P"))
-        Send, {e down}
-    If (!GetKeyState("q", "P") And !GetKeyState("7", "P"))
-        Send, {q up}
+a up::
+If (GetKeyState("d", "P") Or GetKeyState("9", "P"))
+    Send, {d down}
+If (!GetKeyState("a", "P") And !GetKeyState("7", "P"))
+    Send, {a up}
 Return
 
 9 up::
-e up::
-    If (GetKeyState("q", "P") Or GetKeyState("7", "P"))
-        Send, {q down}
-    If (!GetKeyState("e", "P") And !GetKeyState("9", "P"))
-        Send, {e up}
+d up::
+If (GetKeyState("a", "P") Or GetKeyState("7", "P"))
+    Send, {a down}
+If (!GetKeyState("d", "P") And !GetKeyState("9", "P"))
+    Send, {d up}
 Return
 
 ;; NEUTRAL
 ; 7::
-; q::
-;     If (GetKeyState("e", "P") Or GetKeyState("9", "P"))
-;         Send, {q up} {e up}
+; a::
+;     If (GetKeyState("d", "P") Or GetKeyState("9", "P"))
+;         Send, {a up} {d up}
 ;     Else
-;         Send, {q down}
+;         Send, {a down}
 ; Return
 
 ; 9::
-; e::
-;     If (GetKeyState("q", "P") Or GetKeyState("7", "P"))
-;         Send, {e up} {q up}
+; d::
+;     If (GetKeyState("a", "P") Or GetKeyState("7", "P"))
+;         Send, {d up} {a up}
 ;     Else
-;         Send, {e down}
+;         Send, {d down}
 ; Return
 
 ;; LAST INPUT PRIORITY
 7::
-q::
-    If (GetKeyState("e", "P") Or GetKeyState("9", "P"))
-        Send, {e up}
-    Send, {q down}
+a::
+    If (GetKeyState("d", "P") Or GetKeyState("9", "P"))
+        Send, {d up}
+    Send, {a down}
 Return
 
 9::
-e::
-    If (GetKeyState("q", "P") Or GetKeyState("7", "P"))
-        Send, {q up}
-    Send, {e down}
+d::
+    If (GetKeyState("a", "P") Or GetKeyState("7", "P"))
+        Send, {a up}
+    Send, {d down}
 Return
 
 ; Y-AXIS *********************************************
 ;; SHARED
 Space up::
-    If (GetKeyState("w", "P") Or GetKeyState("8", "P"))
-        Send, {w down}
-    Send, {Space up}
+If (GetKeyState("s", "P") Or GetKeyState("8", "P"))
+    Send, {s down}
+Send, {Space up}
 Return
 
 8 up::
-w up::
-    If (GetKeyState("Space", "P"))
-        Send, {Space down}
-    If (!GetKeyState("w", "P") And !GetKeyState("8", "P"))
-        Send, {w up}
+s up::
+If (GetKeyState("Space", "P"))
+    Send, {Space down}
+If (!GetKeyState("s", "P") And !GetKeyState("8", "P"))
+    Send, {s up}
 Return
 
 ;; NEUTRAL
 ; Space::
-;     If (GetKeyState("w", "P") Or GetKeyState("8", "P"))
-;         Send, {Space up} {w up}
+;     If (GetKeyState("s", "P") Or GetKeyState("8", "P"))
+;         Send, {Space up} {s up}
 ;     Else
 ;         Send, {Space down}
 ; Return
 
 ; 8::
-; w::
+; s::
 ;     If (GetKeyState("Space", "P"))
-;         Send, {w up} {Space up}
+;         Send, {s up} {Space up}
 ;     Else
-;         Send, {w down}
+;         Send, {s down}
 ; Return
 
 ;; ABSOLUTE PRIORITY
 Space::
-    If (GetKeyState("w", "P") Or GetKeyState("8", "P"))
-        Send, {w up}
+    If (GetKeyState("s", "P") Or GetKeyState("8", "P"))
+        Send, {s up}
     Send, {Space down}
 Return
 
 8::
-w::
+s::
     If (!GetKeyState("Space", "P"))
-        Send, {w down}
+        Send, {s down}
 Return
